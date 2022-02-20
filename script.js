@@ -105,7 +105,7 @@ function display(a){
 let input="", operator="", preInput="", inputArray = [];
 let input1="", operatorArray = [], temp=0;
 let flag=0 ,operatorFlag=0 ,numFlag=0;
-let preOp="";
+let preOp="", preDot=0;
 display(0);
 const buttons = document.querySelectorAll('.user-buttons');
 buttons.forEach(button => {
@@ -160,12 +160,19 @@ buttons.forEach(button => {
 
         else if(input=="dot")
         {
-            if(preInput=="")
+            if(preDot>0)
+            {
+                input = preInput;
+                display(input);
+                input1 = input;
+            }
+            else if(preInput=="")
             {
                 input = "0"+".";
                 display(input);
                 preInput = input;
                 input1 = input;
+                preDot++;
             }
             else if(preInput>=0&&preInput<=9)
             {
@@ -173,7 +180,9 @@ buttons.forEach(button => {
                 display(input);
                 preInput = input;
                 input1 = input;
+                preDot++;
             }
+            
         }
 
         else if(input=="C"){//reset
@@ -204,7 +213,7 @@ buttons.forEach(button => {
             preInput="";
             input1="";
             operator="";
-
+            preDot = 0;
             if(inputArray[0] !== inputArray[0])
             {
                 display("Invalid input. Press C and continue.");
