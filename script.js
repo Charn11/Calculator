@@ -99,6 +99,7 @@ function operate(arr1,arr2,index){
 }
 
 function display(a){
+    
     document.getElementById('display').innerText=a;
 }
 
@@ -174,7 +175,7 @@ buttons.forEach(button => {
                 input1 = input;
                 preDot++;
             }
-            else if(preInput>=0&&preInput<=9)
+            else if(isNaN(preInput)==false)
             {
                 input = preInput+".";
                 display(input);
