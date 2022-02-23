@@ -196,6 +196,7 @@ buttons.forEach(button => {
             numFlag=0;
             operatorFlag=0;
             input1 = input;
+            preDot=0;
             display(0);
         }
 
@@ -217,7 +218,7 @@ buttons.forEach(button => {
             preDot = 0;
             if(inputArray[0] !== inputArray[0])
             {
-                display("Invalid input. Press C and continue.");
+                display("NOOO");
                 input="";
                 preInput="";
                 operator="";
@@ -241,7 +242,7 @@ buttons.forEach(button => {
                 temp=operate(inputArray,operatorArray,operatorFlag-1);
                 if(temp === Infinity)
                 {
-                    display("Cannot divide by ZERO. Press C and continue.");
+                    display("ERROR");
                     input="";
                     preInput="";
                     operator="";

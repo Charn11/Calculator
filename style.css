@@ -3,22 +3,100 @@ body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #99b3bf;
+    background-color: lightblue;
     justify-content: center;
     align-items: center;
 }
 .container{
     display: flex;
-    border: 2px solid black;
+    border: 4px solid black;
     flex-direction: column;
     background-color: brown;
 }
+#C{
+    width: 100%;
+}
+.clear button{
+    background-color: lightcoral;
+}
+.clear button:hover{
+    background-color: lightgreen;
+}
 #display{
     display: flex;
-    background-color: whitesmoke;
+    background-color: white;
     justify-content: flex-end;
     align-items: center;
     box-sizing: border-box;
     padding: 5px;
-    height: 30px;
+    height: 90px;
+    font-size: 50px;
+    border-bottom: 2px solid black;
+}
+.user-buttons{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.operate-container{
+    display: flex;
+    flex-direction: column;
+    
+}
+.clear{
+    width: 100%;
+    
+}
+.bottom{
+    display: flex;
+    width: 100%;
+}
+.cont2{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.num-cont{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.numcont1{
+    display: flex;
+}
+.numcont2{
+    display: flex;
+}
+.numcont3{
+    display: flex;
+}
+button{
+    height: 80px;
+    width: 110px;
+    font-size: 30px;
+    box-sizing: border-box;
+    
+}
+#dot{
+    width: 110px;
+}
+
+.zero{
+    width: 220px;
+}
+button:hover{
+    background-color: gold;
+}
+.operate-container button{
+    background-color: burlywood;
+}
+.operate-container button:hover{
+    background-color: skyblue;
+}
+.num-cont button, .bottom button{
+    background-color: plum;
+}
+.num-cont button:hover, .bottom button:hover{
+    background-color: greenyellow;
 }
