@@ -28,21 +28,21 @@ function operate(arr1,arr2,index){
     if(arr2[index-1]=="+")
     {
         result= add(arr1);
-        result = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
+        //result = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
         display(result);
         return result;
     }
     else if(arr2[index-1]=="-")
     {
         result = subtract(arr1);
-        result = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
+        //result = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
         display(result);
         return result;
     }
     else if(arr2[index-1]=="*")
     {
         result = multiply(arr1);
-        result = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
+        //result = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
         display(result);
         return result;
     }
@@ -54,7 +54,7 @@ function operate(arr1,arr2,index){
             return result;
         }
         else{
-            result = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
+            //result = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
             display(result);
             return result;
         }
@@ -64,21 +64,21 @@ function operate(arr1,arr2,index){
         if(arr2[index-2]=="+")
         {
             result = add(arr1);
-            result = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
+            //result = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
             display(result);
             return result;
         }
         else if(arr2[index-2]=="-")
         {
             result = subtract(arr1);
-            result = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
+            // = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
             display(result);
             return result;
         }
         else if(arr2[index-2]=="*")
         {
             result = multiply(arr1);
-            result = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
+            //result = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
             display(result);
             return result;
         }
@@ -90,7 +90,7 @@ function operate(arr1,arr2,index){
                 return result;
             }
             else{
-                result = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
+                //result = Math.round( ( result + Number.EPSILON ) * 100 ) / 100;
                 display(result);
                 return result;
             }
@@ -116,7 +116,7 @@ buttons.forEach(button => {
         {
             if(preInput=="")//normal input
             {
-                //console.log(input);
+                console.log(input);
                 display(input);
                 preInput = input;
                 input1 = input;
@@ -130,6 +130,7 @@ buttons.forEach(button => {
                 preInput = input;
                 input1 = input;
             }
+
             else if(preInput==0&&input!=0)//if first entered number is zero then normal input
             {
                 //console.log(input);
@@ -146,6 +147,14 @@ buttons.forEach(button => {
                 //flag=0;
                 //operatorFlag=0;
                 numFlag++;
+                input1 = input;
+            }
+
+            else if(isNaN(preInput)==false)
+            {
+                input = preInput+input;
+                display(input);
+                preInput = input;
                 input1 = input;
             }
     
@@ -184,6 +193,39 @@ buttons.forEach(button => {
                 preDot++;
             }
             
+        }
+
+        else if(input=="back")
+        {
+            if(preInput=="")
+            {
+                display(0);
+            }
+            else if(preInput.length==1)
+            {
+                input="";
+                preInput="";
+                operator="";
+                operatorArray = [];
+                inputArray = [];
+                flag=0;
+                numFlag=0;
+                operatorFlag=0;
+                input1 = input;
+                preDot=0;
+                display(0);
+            }
+            else if(isNaN(preInput*1)==false)
+            {
+                console.log(true);
+                let tempStr = preInput.slice(0, preInput.length-1);
+                input = tempStr;
+                console.log(input);
+                display(input);
+                preInput = input;
+                input1 = input;
+            }
+
         }
 
         else if(input=="C"){//reset
@@ -265,3 +307,68 @@ buttons.forEach(button => {
         }
     });
 });
+
+function keyFunction(code){
+    document.getElementById(code).click();
+}
+//keyboard input
+
+document.addEventListener('keydown', function(event) {
+    
+        
+    switch(event.key){
+        case "0":
+            keyFunction(0);
+            break;
+        case "1":
+            keyFunction(1);
+            break;
+        case "2":
+            keyFunction(2);
+            break;
+        case "3":
+            keyFunction(3);
+            break;
+        case "4":
+            keyFunction(4);
+            break;
+        case "5":
+            keyFunction(5);
+            break;
+        case "6":
+            keyFunction(6);
+            break;
+        case "7":
+            keyFunction(7);
+            break;
+        case "8":
+            keyFunction(8);
+            break;
+        case "9":
+            keyFunction(9);
+            break;
+        case ".":
+            keyFunction("dot");
+            break;
+        case "=":
+        case "Enter":
+            keyFunction("=");
+            break;
+        case "+":
+            keyFunction("+");
+            break;
+        case "-":
+            keyFunction("-");
+            break;
+        case "*":
+            keyFunction("*");
+            break;
+        case "/":
+            keyFunction("/");
+            break;
+        case "Backspace":
+            keyFunction("back");
+            break;
+    }
+    
+}); 

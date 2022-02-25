@@ -12,26 +12,32 @@ body{
     border: 4px solid black;
     flex-direction: column;
     background-color: brown;
+    width: 440px;
+    height: auto;
 }
 #C{
-    width: 100%;
+    width: 220px;
 }
 .clear button{
     background-color: lightcoral;
 }
 .clear button:hover{
-    background-color: lightgreen;
+    background-color: red;
 }
+
 #display{
     display: flex;
+    flex-wrap: wrap;
     background-color: white;
     justify-content: flex-end;
     align-items: center;
     box-sizing: border-box;
     padding: 5px;
-    height: 90px;
-    font-size: 50px;
+    height: auto;
+    font-size: 40px;
     border-bottom: 2px solid black;
+    word-break: break-all;
+   
 }
 .user-buttons{
     display: flex;
@@ -45,7 +51,7 @@ body{
 }
 .clear{
     width: 100%;
-    
+    display: flex;
 }
 .bottom{
     display: flex;
@@ -76,7 +82,7 @@ button{
     width: 110px;
     font-size: 30px;
     box-sizing: border-box;
-    
+    border: white;
 }
 #dot{
     width: 110px;
@@ -100,3 +106,8 @@ button:hover{
 .num-cont button:hover, .bottom button:hover{
     background-color: greenyellow;
 }
+button{
+    outline: none;
+    cursor: pointer;
+}
+
